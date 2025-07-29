@@ -1,0 +1,26 @@
+{% extends "MyTemp/NavBar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}
+        blogdelete
+        {% endblock title %}</title>
+</head>
+<style>
+
+</style>
+<body>
+    {% block content %}
+    <h1>DeleteBlog</h1>
+
+    <form  method="POST">
+        {% csrf_token %}
+        <h2>Are you sure you want to delete this blog?</h2>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'bloglist' %}"><button type="submit" class="btn btn-primary">Cancel</button></a>
+    </form>
+    {% endblock content %}
+</body>
+</html>

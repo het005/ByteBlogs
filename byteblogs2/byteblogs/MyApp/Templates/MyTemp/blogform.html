@@ -1,0 +1,28 @@
+{% extends "MyTemp/NavBar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}
+        Blogadd
+        {% endblock title %}</title>
+</head>
+<style>
+
+</style>
+<body>
+    {% block content %}
+    <h1> BlogForm </h1>
+    <h2>{% if form.instance.pk %}Edit Blog {% else %}Create Blog {% endif %}
+        <form method="POST" enctype="multipart/form-data" class="form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-warning">Submit</button>
+            <a href="{% url 'bloglist' %}">Back to bloglist</a>
+        </form>
+    </h2>
+
+    {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "MyTemp/NavBar.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'static/style.css' %}">
+    <title>{% block title %} bloglist {% endblock title %}</title>
+  </head>
+  <body>
+    {% block content %}
+    <h1>Wellcome to Bloglist</h1>
+
+
+    <a class="btn btn-primary" href="{% url 'blogadd'  %} ">create Blog</a>
+
+    <div class="container row gap-3">
+      {% for blog in blogs %}
+      <div class="card" style="width: 18rem">
+        <img src="{{blog.photo.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{blog.user.username}}</h5>
+          <p class="card-text">
+           {{blog.text}}
+          </p>
+          {% if blog.user ==  user %}
+          <a href="{% url 'blogedit' blog.id %}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'blogDelete' blog.id %}" class="btn btn-danger">Delete</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endblock content %}
+  </body>
+</html>
