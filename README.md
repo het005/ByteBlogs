@@ -13,7 +13,9 @@ ByteBlogs is a full-stack blog web application built using Django. It allows use
 🎨 Responsive UI using HTML, CSS, Bootstrap 
 
 # 🛠️ Tech Stack:
-Backend: Django 5.x
+Backend: Python, Django 5.x
+
 Frontend: HTML, CSS, Django Templates
-Database: SQLite3 (default, easily upgradable)
+
+Database: SQLite3 
 
